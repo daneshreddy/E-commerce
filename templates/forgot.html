@@ -1,0 +1,21 @@
+<html>
+<body>
+
+<h2>Reset Password</h2>
+
+<form method="post">
+    <input type="text" name="username" placeholder="Enter Username" required><br><br>
+
+    <input type="password" name="password" placeholder="New Password" required><br><br>
+
+    <input type="submit" value="Reset Password">
+</form>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<p><a href="{{ url_for('login') }}">Back to Login</a></p>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+body{
+    font-family:Arial;
+    background:#f9f9f9;
+}
+
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#007bff;
+    color:white;
+}
+
+.total{
+    text-align:right;
+    margin-right:5%;
+    font-size:18px;
+    font-weight:bold;
+}
+
+a{
+    color:red;
+}
+</style>
+</head>
+<body>
+    <h2>Your Cart</h2>
+
+{% if items %}
+
+    {% for item in items %}
+        <div>
+            <h3>{{ item[1] }}</h3>
+            <img src="{{ item[3] }}" width="120">
+            <p>Price: ₹{{ item[2] }}</p>
+            <p>Quantity: {{ item[4] }}</p>
+            <p>Subtotal: ₹{{ item[2] * item[4] }}</p>
+            <a href="{{ url_for('remove', product_id=item[0]) }}">
+                <button>Remove</button>
+            </a>
+            <hr>
+        </div>
+    {% endfor %}
+    <h3>Total: ₹{{ total }}</h3>
+    <br>
+    <a href="{{ url_for('checkout') }}">
+        <button>Buy Now</button>
+    </a>
+{% else %}
+
+    <p>Your cart is empty</p> 
+
+{% endif %}
+
+<br>
+<a href="{{ url_for('home') }}">Back to Home</a>
+    
+</body>
+</html>

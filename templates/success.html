@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>success</title>
+    <style>
+body{
+    font-family:Arial;
+    background:#e6ffe6;
+    text-align:center;
+    padding-top:100px;
+}
+
+.success-box{
+    background:white;
+    display:inline-block;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tick{
+    font-size:60px;
+    color:green;
+}
+</style>
+</head>
+<body>
+    <h2>Order Placed Successfully 🎉</h2>
+<p>Total Paid: ₹{{ total }}</p>
+<br>
+<a href="{{ url_for('home') }}">Continue Shopping</a>
+<h2 style="color: green;">✔ Order Placed Successfully!</h2>
+    
+</body>
+</html>
